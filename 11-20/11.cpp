@@ -1,40 +1,40 @@
 #include <stdio.h>
 
-void quitSort(int s[], int start, int end)
+void quitSort(int data[], int start, int end)
 {
     int i, j;
     i = start;
     j = end;
-    int box = s[start];
+    int box = data[start];
     while (i < j)
     {
-        while (i < j && box <= s[j])
+        while (i < j && box <= data[j])
         {
             j--;
         }
         if (i < j)
         {
-            s[i] = s[j];
+            data[i] = data[j];
             i++;
         }
-        while (i < j && s[i] <= box)
+        while (i < j && data[i] <= box)
         {
             i++;
         }
         if (i < j)
         {
-            s[j] = s[i];
+            data[j] = data[i];
             j--;
         }
     }
-    s[i] = box;
+    data[i] = box;
     if (start < i)
     {
-        quitSort(s, start, i - 1);
+        quitSort(data, start, i - 1);
     }
     if (i < end)
     {
-        quitSort(s, i + 1, end);
+        quitSort(data, i + 1, end);
     }
 }
 
